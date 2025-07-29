@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>战舰激斗 Battle of Warships</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+            padding-bottom: 60px; /* 为footer留出空间 */
+        }
+
+        header, nav, main, footer {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #bdc3c7;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        .btn_download {
+            background-color: #e74c3c;
+            color: #fff !important;
+            border-radius: 5px;
+            padding: 10px 20px !important;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn_download:hover {
+            background-color: #c0392b !important;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        section p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .btn_jump {
+            display: inline-block;
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn_jump:hover {
+            background-color: #27ae60;
+        }
+        
+        .download-section {
+            text-align: center;
+        }
+
+        .download-section .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .download-section a {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .download-section a.apk {
+            background-color: #3498db;
+        }
+        
+        .download-section a.obb {
+            background-color: #9b59b6;
+        }
+
+        .download-section a:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            max-width: none;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>战舰激斗 · Battle of Warships</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#download">下载游戏</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>首页</h2>
+            <p>驾驶传奇战舰，体验真实海战！点击下面按钮立刻加入战场。</p>
+            <button class="btn_jump" onclick="jumpToGame()">下载游戏</button>
+        </section>
+
+        <section id="about">
+            <h2>关于我们</h2>
+            <p>
+                投身到紧张激烈的海战中吧！《战舰激斗》是一款著名的战舰和海战题材手游。<br>
+                驾驶一战和二战期间服役过的独特舰船。升级战船，提升生命值、引擎速度和转向速度。<br>
+                用您祖国的旗帜自定义您的海军。领取每日奖励，升级您的技能和舰船属性。
+            </p>
+            <ul>
+                <li>20+ 传奇战舰：大和、密苏里、俾斯麦、南达科他号等</li>
+                <li>真实 3D 画面：动态天气、昼夜系统</li>
+                <li>简单操作：陀螺仪+触控，一指开战</li>
+            </ul>
+        </section>
+        
+        <section id="download" class="download-section">
+            <h2>游戏下载</h2>
+            <p>点击下方按钮下载最新版本游戏文件。</p>
+            <div class="download-buttons">
+                <a href="https://apkadmin.com/xk6tue9ijw12/Battle_of_Warships_1.73.11.apk.html" target="_blank" class="apk">下载 APK (53.5 MB)</a>
+                <a href="https://apkadmin.com/s17zy52jlhad/main.300175.com.CubeSoftware.BattleOfWarships.zip.html" target="_blank" class="obb">下载 OBB 数据包 (153.0 MB)</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>联系我们</h2>
+            <p>商务合作/玩家反馈：<a href="mailto:196256443@qq.com">196256443@qq.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 渊龙联盟 BattleofWarships</p>
+    </footer>
+
+    <script>
+        function jumpToGame() {
+            document.getElementById('download').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
